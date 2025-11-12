@@ -1,0 +1,882 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');;
+
+
+/* ==================================== */
+/* 1. VARIÁVEIS
+/* ==================================== */
+// Cores
+
+$btn-color: #1173D4;
+$btn-hover: #33CC73;
+$dark-blue: #0A215E;
+$text-color: #04031C;
+$-color: #2F3235;
+$white: #FFFFFF;
+$light-blue-bg: #F8F9FA;
+$pink-bg: #FDEFEF;
+$border-card: #F9FAFB;
+$text-card-fem: #000000;
+$alert-pink-bg: #F9D5E5;
+$alert-blue-bg: #CFE2F3;
+$alert-green-bg: #D4EDDA;
+$alert-yellow-bg: #FFE9C2;
+$text-alert-pink: #AD346A;
+$text-alert-blue: #2769A3;
+$text-alert-green: #244A2D;
+$text-alert-yellow: #976C00;
+$footer-bg: #2A2F5B;
+$footer-text: #FEFEFE;
+$footer-title-text: #FFFFFF;
+$footer-divider: #d9e0ea;
+
+// Tipografia
+$font-nav: 'Roboto', sans-serif;
+$font-principal: 'Inter', sans-serif;
+$font-footer: 'Poppins', sans-serif;
+
+// Breakpoints
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+
+/* ==================================== */
+/* 2. ESTILOS GLOBAIS E RESETS
+/* ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+    text-decoration: none;   
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+   // 1. ESTILO PADRÃO (MOBILE-FIRST)
+.section-title {
+     background: linear-gradient(to right, #1173D4 0%, #33CC73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold; 
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: -50px;
+    font-family: $font-principal;
+}
+
+//2. REGRA APLICADA PARA AS SEÇÕES COM TITULOS H2 AS TELAS MAIORES QUE 768px
+@media (min-width: $tablet-width) {
+    .section-title {       
+        font-size: 2.82rem;      
+    }
+}
+
+/* ==================================== */
+/* 3. HEADER - MOBILE-FIRST
+/* ==================================== */
+.header {
+    padding: 1.5rem 0 3rem; // Espaçamento interno    
+    height: auto;
+    background-image: none;
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem; // Espaço entre nav, texto e botões
+    }
+
+    // --- BARRA DE NAVEGAÇÃO ---
+    &__nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        // MOBILE: Empurra a logo para a esquerda e o menu para a direita
+        justify-content: space-between;         
+        padding: 0.75rem; 
+        border-radius: 50px;
+        background: linear-gradient(to right, #4247A2 0%, #52B095 100%);  
+    }    
+    
+    &__logo {
+        flex-shrink: 0; // Garante que a logo não seja espremida
+
+    img {
+        width: 90px;
+    }}
+
+     &__menu {
+            // Torna o menu visível e o estiliza
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: $font-nav;
+            list-style: none;               
+            margin-left: 1rem; //CRIA UM ESPAÇO MÍNIMO E SEGURO ENTRE A LOGO E O MENU     
+            flex-grow: 1;
+            
+            .long-text {
+                display: none;          
+            }
+
+            a {
+                 white-space: nowrap;
+                color: $footer-text; // Ajuste a cor do texto para o fundo claro
+                font-weight: 500;
+                transition: color 0.3s ease;
+                font-size: 0.8rem;
+                
+                &:hover {
+                    color: $dark-blue;
+                }
+            }
+        }
+        
+
+    // --- CONTEÚDO DE TEXTO ---
+    &__content {
+        text-align: center;       
+
+        h2 {
+            font-size: 2.82rem;
+            font-weight: 700;           
+            margin-bottom: 1rem;
+            // Efeito de gradiente no texto
+             background: linear-gradient(to right, #4247A2 0%, #52B095 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.625rem;
+            color: $text-color;
+            max-width: 400px;
+        }
+    }
+
+    // --- BOTÕES ---
+   
+.btn-primary, .btn-secondary {    
+    padding: 0.75rem 1.25rem; 
+    font-size: 0.875rem; // 14px
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    font-family: $font-principal;
+    text-align: center; // Garante que o texto fique centralizado
+}
+
+// Estilos específicos para cada botão (cores, bordas, etc.)
+.btn-primary {
+    background-color: $btn-color;
+    color: $white;
+    border: solid 1px $btn-color;
+
+    &:hover {
+        background-color: $btn-hover;
+        color: $pink-bg;
+    }
+}
+
+.btn-secondary {
+    background-color: $light-blue-bg;
+    color: $btn-color;
+    border: solid 1px $btn-color;
+
+    &:hover {
+        background-color: $btn-hover;
+        color: $pink-bg;
+    }
+}
+
+
+// --- BOTÕES (O CONTAINER) ---
+&__buttons {
+     display: flex;
+    gap: 1rem;
+    width: 100%;
+     flex-direction: row; 
+        justify-content: flex-start; // Alinha à esquerdas: center;
+
+  } 
+     // NOVO: Regras para telas maiores
+    @media (min-width: $tablet-width) {
+        // Volta a ser lado a lado
+        flex-direction: row; 
+        justify-content: flex-start; // Alinha à esquerda
+
+        // Aumenta o tamanho dos botões novamente
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            font-size: 1rem; // 16px
+}}}
+
+
+
+
+/* ==================================== */
+/* RESPONSIVIDADE (DESKTOP | MACBOOK)
+/* ==================================== */
+@media (min-width: $desktop-width) {
+    .header {        
+        height: 90vh;
+        background-image: url("./assets/img/bannerHeader.png");
+        background-repeat: no-repeat;
+        background-size: contain;       
+        background-color: $light-blue-bg; // A cor de fundo clara volta
+        padding: 2rem 0;
+        font-family: $font-principal;
+        
+        // Alinha todo o conteúdo à esquerda
+        .container {
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        &__nav {           
+            padding: 0.75rem 1.5rem;
+            margin-top: 42px;           
+            border-radius: 50px;
+        }    
+        
+        &__logo {
+        flex-shrink: 0; // Garante que a logo não seja espremida
+
+    img {
+        width: 120px;
+    }}
+
+        &__menu {
+            // Torna o menu visível e o estiliza
+            display: flex;        
+            font-family: $font-nav;
+            list-style: none;  
+            flex-grow: 1;
+            justify-content: center;
+            gap: 2.5rem;
+            
+             .short-text {
+                    display: none;
+                }
+
+                // 4. E mostramos o texto longo
+                .long-text {
+                    display: inline; // 'inline' ou 'block' funcionam aqui
+                }
+                      
+
+            a {
+                color: $footer-text; // Ajuste a cor do texto para o fundo claro
+                font-weight: 500;
+                font-size: 1.25rem;
+                transition: color 0.3s ease;                
+                
+                &:hover {
+                    color: $dark-blue;
+                }
+            }
+        }
+        
+        // Alinha texto e botões à esquerda
+        &__content {
+            text-align: left;
+            margin-top: 4rem; // Empurra o conteúdo para baixo
+
+            h2 {
+                font-size: 2.82rem; // Aumenta a fonte
+                  background: linear-gradient(to right, #1173D4 0%, #33CC73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            max-width: 16ch; /* limita a largura para cerca de 16 caracteres */               
+            }
+
+            p {
+                font-size: 1.625rem; // Aumenta a fonte
+                color: #5F646B; // Cor de texto padrão
+                max-width: 500px;
+            }
+        }
+
+        &__buttons {
+            flex-direction: row;
+            justify-content: flex-start; // Alinha os botões à esquerda
+        }
+    }
+}
+
+/* ================================================= */
+/* RESPONSIVIDADE - APENAS PARA (IPADS)
+/* ================================================= */
+@media (min-width: $tablet-width) and (max-width: ($desktop-width - 1px)) {
+    .header {      
+        // Se quiser o banner do desktop, descomente as linhas abaixo.        
+        background-image: url("./assets/img/bannerHeader.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        
+          .container {
+            align-items: flex-start;
+        }
+
+         &__nav {
+            // 1. ALINHAMENTO À ESQUERDA
+            // Trocamos 'space-between' por 'flex-start'
+            justify-content: flex-start;
+            gap: 2rem; // Adiciona um espaço entre a logo e o menu
+            padding: 0.75rem 2rem; // Aumenta o espaçamento interno
+        }
+
+          &__logo img {
+            width: 120px; // Um tamanho de logo intermediário
+        }
+          
+        &__menu {
+            // Remove a necessidade de empurrar com margin, pois o gap já resolve
+             display: flex;        
+            font-family: $font-nav;
+            list-style: none;            
+            gap: 1.5rem;            
+
+            // 2. REVELAR TEXTO COMPLETO
+            // Escondemos a abreviação
+            .short-text {
+                display: none;
+            }
+            // E mostramos o texto completo
+            .long-text {
+                display: inline;
+            }
+            
+            a {
+                // 3. AUMENTAR O TAMANHO
+                // Uma fonte maior para melhor leitura em tablet
+               font-size: 1.25rem; 
+            }
+        }
+
+         &__content {
+            text-align: left;
+            margin-top: 3rem;
+
+            h2 {
+                font-size: 2.82rem; // Aumenta a fonte
+                  background: linear-gradient(to right, #1173D4 0%, #33CC73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            max-width: 16ch; /* limita a largura para cerca de 16 caracteres */               
+            }
+
+            p {
+                font-size: 1.625rem; // Aumenta a fonte
+                color: #5F646B; // Cor de texto padrão
+                max-width: 430px;
+            }
+        }
+         // Ajusta os botões para a esquerda
+        &__buttons {
+            justify-content: flex-start;
+        }
+       
+    } 
+}
+
+/* ==================================== */
+/* 4. SEÇÃO IMPORTÂNCIA - MOBILE FIRST
+/* ==================================== */
+.importance {
+    padding: 5rem 0;
+    background-color: $light-blue-bg;
+      font-family: $font-principal;
+
+     p {
+            color: $text-color;
+            font-size: 0.94rem;            
+            margin-bottom: 2rem;            
+        }
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; 
+        padding: 1.5rem;      
+    }
+
+    .importance-card {
+    text-align: center;
+    border: solid 1px $text-color; // Suavizei a cor da borda para um melhor visual
+    border-radius: 8px;    // Adicionei bordas arredondadas para um look mais moderno
+    padding: 1rem ;
+    background-color: #fff; // Garante um fundo branco para o shadow funcionar bem
+
+    // 1. Sombra inicial (sutil)
+        box-shadow: 0 0 1rem rgba(95, 100, 107, 0.2), // Sombra da borda (usei sua $text-color como base)
+                0 1.5rem 1.5rem rgba(10, 33, 94, 0.1);   // Sombra de profundidade
+    
+    // 2. Transição suave para as propriedades que vamos animar
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        
+        img {
+            margin: 0 auto 1rem;
+            width: 50px;
+        }
+
+        h3 {
+            color: $text-color;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1.15rem;
+        
+        }
+        
+         // 3. O Efeito 3D ao passar o mouse
+    &:hover {        
+        transform: translateY(-10px); // Levanta o card no eixo Y (vertical)       
+        box-shadow: 0 1.5rem 1.5rem rgba(10, 33, 94, 0.2); // Aumenta a sombra para dar a impressão de que está mais "alto"
+        transform: scale(1.1);
+      cursor: pointer;
+      }
+    }
+    
+   /* ==================================== */
+/* RESPONSIVIDADE (DESKTOP | MACBOOK)
+/* ==================================== */
+
+    @media (min-width: $tablet-width) {  
+        margin-top: -150px;
+           p {            
+            font-size: 1.25rem;                        
+        }     
+        &__cards {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .importance-card {
+            flex-basis: 30%; // Cada card ocupa cerca de 30%
+        }
+    }
+}
+
+/* ==================================== */
+/* 6. SEÇÃO PREVENÇÃO - MOBILE FIRST
+/* ==================================== */
+.prevention {
+    padding: 6rem 0;
+    font-family: $font-nav;
+
+       // Container PAI dos cards
+    .prevention__cards {             
+        gap: 4rem; // Exemplo: 32px de espaço entre cada card
+    }
+
+    &.pink-bg {
+        background-color: $pink-bg;
+
+    h2 {
+       background: linear-gradient(
+      to right,
+      #f9016f8a 64%,
+      #9308859e 61.96%,
+      #d038aac0 75.48%,
+      #851c87 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    font-size: 2rem; 
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: -50px;
+    font-family: $font-principal;
+     }
+    }
+
+     &.blue-bg {
+        background-color:$light-blue-bg;
+
+    h2 {
+           background: linear-gradient(
+      to right,
+      #3373D2 6.04%,
+      #6F95C7 33.14%,
+      #7BB5F5 54.51%,
+      #0074EE 68.5%,
+      #5EA7EF 7.02%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold; 
+     font-size: 2rem; 
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: -50px;
+    font-family: $font-principal;
+      
+      }      
+    }
+
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;       
+    }
+
+    .prevention-card {
+        background-color: $white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;   
+        min-width: 150px;
+        min-height: 400px;  
+        max-width: 255px; 
+        width: 100%;
+
+        img {
+            width: 105px;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: $text-card-fem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        ul{
+            li {
+            line-height: 1.3;
+            font-size: 0.875rem;
+            color: $text-card-fem; 
+            text-align: left; 
+            padding: 0.4rem;                    
+            }                      
+        }
+
+            // 3. O Efeito 3D ao passar o mouse
+    &:hover {        
+        transform: translateY(-10px); // Levanta o card no eixo Y (vertical)       
+        box-shadow: 0 1.5rem 1.5rem rgba(10, 33, 94, 0.2); // Aumenta a sombra para dar a impressão de que está mais "alto"
+        transform: scale(1.1);
+      cursor: pointer;
+      }
+    }
+    
+       /* ==================================== */
+/* RESPONSIVIDADE (DESKTOP | MACBOOK)
+/* ==================================== */
+    @media (min-width: $tablet-width) {  
+        &.pink-bg {
+              h2 {
+            font-size: 2.82rem;        
+        }        
+      }  
+      
+        &.blue-bg {
+              h2 {
+            font-size: 2.82rem;        
+        }}        
+      
+
+        &__cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }      
+    }
+
+    @media (min-width: $desktop-width) {
+        .prevention-card {
+            flex-basis: calc(33.333% - 1rem); // 3 colunas
+        }
+    }
+}
+
+/* ==================================== */
+/* 7. SEÇÃO ALERTAS - MOBILE FIRST
+/* ==================================== */
+.alerts {
+    padding: 4rem 0;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // O CONTAINER DOS CARDS
+    &__boxes {
+        display: flex;
+        flex-wrap: wrap; // 1. Permite que os cards quebrem para a próxima linha
+        justify-content: center; // 2. Centraliza os cards no container
+        gap: 4rem; // 3. Adiciona espaço entre os cards
+        width: 100%;
+    }
+
+    // O CARD INDIVIDUAL
+    .alert-box {      
+        width: 20rem;
+        height: 10rem;        
+        max-width: 100%; // Para responsividade em telas menores que 416px, max-width é útil
+        display: flex;
+        flex-direction: column; 
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        font-family: $font-nav;   
+        
+           // O container do texto
+        &__content {
+            display: flex; 
+            align-items: center;          
+            gap: 0.5rem; // Espaço entre a imagem e o título            
+        } 
+
+       box-shadow: 0 0 3rem rgba(95, 100, 107, 0.2), // Sombra da borda 
+                0 1.5rem 1.5rem rgba(10, 33, 94, 0.1);   // Sombra de profundidade   
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; // Transição suave para as propriedades que vamos animar
+
+        img {
+            // Garante que a imagem não seja espremida ou esticada
+            flex-shrink: 0; 
+            width: 2.18rem; // Defina um tamanho para a imagem   
+            height: 2.18rem;        
+            margin-top: -10px;
+        }     
+        
+        // As regras de cor continuam as mesmas, mas agora aplicam-se ao conteúdo agrupado
+        &--pink {
+            background-color: $alert-pink-bg;
+            h3, p { color: $text-alert-pink; }
+        }
+        &--blue {
+            background-color: $alert-blue-bg;
+            h3, p { color: $text-alert-blue; }
+        }
+        &--green {
+            background-color: $alert-green-bg;
+            h3, p { color: $text-alert-green; }
+        }
+        &--yellow {
+            background-color: $alert-yellow-bg;
+            h3, p { color: $text-alert-yellow; }
+        }
+
+        // Estilos comuns para h3 e p
+        h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-top: -15px;
+        }
+                  // 3. O Efeito 3D ao passar o mouse
+    &:hover {        
+        transform: translateY(-10px); // Levanta o card no eixo Y (vertical)       
+        box-shadow: 0 1.5rem 1.5rem rgba(10, 33, 94, 0.2); // Aumenta a sombra para dar a impressão de que está mais "alto"
+        transform: scale(1.1);
+      cursor: pointer;
+      }
+    }
+
+           /* ==================================== */
+/* RESPONSIVIDADE (DESKTOP | MACBOOK)
+/* ==================================== */
+    @media (min-width: $desktop-width) {
+         .alert-box {      
+        width: 26rem;
+        height: 9rem;      
+         }}
+} 
+
+/* ==================================== */
+/* 8. RODAPÉ
+/* ==================================== */
+/* ==================================== */
+/* ESTILOS DO FOOTER
+/* ==================================== */
+.footer {
+    background-color: $footer-bg;
+    color: $footer-text;
+    padding: 4rem 0 2rem;
+    line-height: 1.7; 
+    font-family: $font-footer; 
+    
+    // A classe .container é genérica para centralizar o conteúdo
+    .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 1rem;      
+    }
+
+    // Seção superior que agrupa as colunas
+    &__top {
+        display: flex;
+        flex-direction: column; // Empilha as colunas em mobile        
+        gap: 2.5rem; // Espaçamento entre as colunas
+        margin-bottom: 3rem;   
+        align-items: center;    
+    }
+
+    // Estilo geral para classes de cada coluna
+    &__column {
+          text-align: center;
+
+        h3 {
+            font-size: 1.125rem;
+            color: $footer-title-text;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        p, a {
+            font-size: 1rem;
+        }
+    }
+
+    // Estilos específicos da coluna "Sobre"
+    &__about {
+         
+        .footer__logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+           
+        }
+        .footer__title__text {
+            font-weight: 600;
+            color: $footer-title-text;
+            margin-bottom: 1rem;                                
+        }
+
+        p {            
+              max-width: 27ch; /* limita a largura para cerca de 27 caracteres */            
+        }
+       
+    }
+
+    // Estilos específicos da coluna "Links"
+    &__links {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: $footer-text;
+            transition: color 0.3s ease;             
+
+            &:hover {
+                color: $btn-hover;
+            }
+        }
+    }
+    
+    // Estilos específicos da coluna "Contato"
+    &__contact {
+        margin-left: auto;
+            margin-right: auto;
+         font-size: 1rem;         
+        p {
+            margin-bottom: 0.75rem;             
+        }
+
+        .link-whats__text {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem; 
+        }
+
+        .footer__emergency {
+            margin-top: 1.3rem;
+            opacity: 0.8;
+            font-size: 0.88rem;
+        }
+    }
+
+    // Seção inferior do copyright
+    &__copyright {
+        padding-top: 2rem;
+        margin-top: 3rem; // Adiciona um espaço acima da linha
+        border-top: 1px solid $footer-divider;
+
+        p {
+        text-align: center;
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+        span {
+            color: $btn-hover;        
+        }
+    }
+
+    /* ==================================== */
+    /* RESPONSIVIDADE PARA TELAS MAIORES
+    /* ==================================== */
+    @media (min-width: $tablet-width) {
+        &__top {
+            flex-direction: row; // Alinha as colunas lado a lado
+            justify-content: space-between;
+            align-items: flex-start; // Alinha as colunas no topo
+        }
+        
+        // Ajusta a largura base de cada coluna em telas maiores
+        &__column {
+            // flex-basis define o tamanho inicial de um item flex
+            // O primeiro item (sobre) ocupa mais espaço
+            &.footer__about {
+                flex-basis: 40%;
+            }
+            // Os outros dois dividem o espaço restante
+            &.footer__links, &.footer__contact {
+                flex-basis: 25%;
+            }
+        }
+    }
+}
