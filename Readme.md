@@ -115,6 +115,4 @@ O desafio consistiu em:
 
 <br><br>
 
-
-
 ⭐ Se gostou desse projeto, não esqueça de deixar uma estrela no repositório!
