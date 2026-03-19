@@ -2,10 +2,6 @@
 
 # Projeto Viva Bem 🩺✨
 
-<br>
-
-**🔗[Clique aqui e conheça o Projeto Viva Bem - Prevenção e Saúde!!)](https://projeto-vivabem-prevencao-saude.vercel.app//)**
-
 <table>
   <tr>
     <td><img src="https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" /></td>
@@ -15,15 +11,23 @@
   </tr>
 </table>
 
-<img src="https://media.giphy.com/media/3zSF3Gnr7cxMbi6WoP/giphy.gif" align="center" height="55" width="55" /> [Demonstração-Projeto-VivaBem] <img src="https://media.giphy.com/media/E5DzZsofmgxc9wjbhX/giphy.gif" align="center" height="35" width="35" />
+<br>
+
+🎥Demonstração
 
 <img height="480em" src="./assets/img/projeto-vivabem-readme.gif" align="center" />
 
+<br><br>
+
+🚀 Acesse o Projeto
+
+**🔗[Clique aqui e conheça o Projeto Viva Bem - Prevenção e Saúde!!)](https://projeto-vivabem-prevencao-saude.vercel.app//)**
+
 </div>
 
-***
-
 <br>
+
+***
 
 # Índice 📚
 
